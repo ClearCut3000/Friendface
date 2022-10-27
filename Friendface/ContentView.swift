@@ -9,30 +9,24 @@ import SwiftUI
 
 struct ContentView: View {
 
+  //MARK: - View Properties
   @Environment(\.managedObjectContext) var moc
+  @State private var searchString = ""
   @State private var users = [User]()
 
-    var body: some View {
-      NavigationView {
-        List(users) { user in
-          NavigationLink {
-            UserView(user: user)
-          } label: {
-            HStack {
-              Circle()
-                .fill(user.isActive ? .green : .red)
-                .frame(width: 30)
-              Text(user.name)
-            }
-          }
-        }
+  //MARK: - View Body
+  var body: some View {
+    NavigationView {
+      FilteredList(filter: searchString)
+        .searchable(text: $searchString)
         .navigationTitle("FriendFace")
         .task {
           await fetchUsers()
         }
-      }
     }
+  }
 
+  //MARK: - View Methods
   func updateCache(with downloadedUsers: [User]) {
     for user in downloadedUsers {
       let cachedUser = CachedUser(context: moc)
@@ -53,7 +47,9 @@ struct ContentView: View {
         cachedUser.addToFriends(cachedFriend)
       }
     }
-    try? moc.save()
+    if moc.hasChanges {
+      try? moc.save()
+    }
   }
 
   func fetchUsers() async {
@@ -63,7 +59,10 @@ struct ContentView: View {
       let (data, _) = try await URLSession.shared.data(from: url)
       let decoder = JSONDecoder()
       decoder.dateDecodingStrategy = .iso8601
-      users = try decoder.decode([User].self, from: data)
+      let users = try decoder.decode([User].self, from: data)
+      await MainActor.run {
+        updateCache(with: users)
+      }
     } catch {
       print("Download failed")
     }
@@ -71,7 +70,7 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+  static var previews: some View {
+    ContentView()
+  }
 }

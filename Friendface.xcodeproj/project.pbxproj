@@ -19,6 +19,7 @@
 		36560E31290B078A0056D27F /* CachedUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36560E2D290B078A0056D27F /* CachedUser+CoreDataProperties.swift */; };
 		36560E32290B078A0056D27F /* CachedFriend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36560E2E290B078A0056D27F /* CachedFriend+CoreDataClass.swift */; };
 		36560E33290B078A0056D27F /* CachedFriend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36560E2F290B078A0056D27F /* CachedFriend+CoreDataProperties.swift */; };
+		36560E35290B126D0056D27F /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36560E34290B126D0056D27F /* FilteredList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		36560E2D290B078A0056D27F /* CachedUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		36560E2E290B078A0056D27F /* CachedFriend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		36560E2F290B078A0056D27F /* CachedFriend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CachedFriend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		36560E34290B126D0056D27F /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				36560E25290B03210056D27F /* UserView.swift */,
 				36560E27290B04AD0056D27F /* DataController.swift */,
 				36560E29290B05580056D27F /* Friendface.xcdatamodeld */,
+				36560E34290B126D0056D27F /* FilteredList.swift */,
 			);
 			path = Friendface;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				36560E2B290B05580056D27F /* Friendface.xcdatamodeld in Sources */,
 				36560E28290B04AD0056D27F /* DataController.swift in Sources */,
 				36560E18290ACE230056D27F /* ContentView.swift in Sources */,
+				36560E35290B126D0056D27F /* FilteredList.swift in Sources */,
 				36560E16290ACE230056D27F /* FriendfaceApp.swift in Sources */,
 				36560E24290AFDBC0056D27F /* User.swift in Sources */,
 				36560E30290B078A0056D27F /* CachedUser+CoreDataClass.swift in Sources */,
